@@ -1,0 +1,89 @@
+<nav class="navbar navbar-fluid bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand"><%= image_tag('cover-logo.png',alt: "logo", id: "cover-logo") %></a>
+  </div>
+</nav>
+<%= image_tag('pattern.png',alt: "logo", id: "cover-bg") %>
+
+<div id="text-container">
+    <p>ALWAYS RUNNING SHORT?</p>
+    <p>MONEY BEE CAN HELP.</p>
+    <h1 id="slideshow-text"> &nbsp; </h1>
+    <button class="btn" id="get-started-btn">Get Started</button>
+</div>
+<div id="slideshow-div">
+    <%= image_tag('earn.png',alt: "logo", id: "earn-img", class: "slideshow-img hidden") %>
+    <%= image_tag('save.png',alt: "logo", id: "save-img", class: "hidden slideshow-img") %>
+    <%= image_tag('spend.png',alt: "logo", id: "spend-img", class: "hidden slideshow-img") %>
+</div>
+
+<style>
+    #cover-logo{
+        height: 50px;
+    }
+    #slideshow-div{
+        position: absolute;
+        top: 28%;
+        right: 15%;
+    }
+    .slideshow-img{
+        height: 400px;
+        width: auto;
+    }
+    .navbar{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        box-shadow: 0px 2px 10px rgb(206, 206, 206);
+    }
+   #cover-bg{
+    width: 100%;
+    height: auto;
+   }
+   .hidden{
+    animation-name: fadein;
+    animation-delay: 0s;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+   }
+   #slideshow-text{
+    color: #1A8367;
+   }
+   #text-container{
+    position: absolute;
+    top: 28%;
+    left: 15%;
+   }
+   #text-container p {
+    margin-bottom: -5px;
+    font-size: 40px;
+    font-weight: 700;
+   }
+   #text-container h1 {
+    margin-top: 20px;
+    font-size: 70px;
+   }
+   #get-started-btn{
+    background-color: #58C479;
+    color: white;
+    font-size: x-large;
+    margin-top: 20px;
+   }
+   /* #earn-img, #save-img, #spend-img, #slideshow-text {
+    display: none;
+   } */
+   @keyframes fadein{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+   }
+</style>
+ <%=javascript_pack_tag 'cover.js'%>

@@ -1,0 +1,61 @@
+<style>
+  body{
+    background-color: #1A8367;
+  }
+</style>
+<div class="container">
+  <div class="container">
+    <div class="row px-3">
+      <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+        <div class="img-left d-none d-md-flex">
+          <%= image_tag('5141092.jpg',alt: "logo", id: "logo-img", class: "login-img") %>
+        </div>
+  
+        <div class="card-body">
+          <h4 class="title text-center mt-4">
+            Login 
+          </h4>
+          <form class="form-box px-3">
+            <div class="form-input">
+              <span><i class="fa fa-envelope-o"></i></span>
+              <input type="email" name="" placeholder="Mail Address" tabindex="10" required>
+            </div>
+            <div class="form-input">
+              <span><i class="fa-solid fa-key"></i></span>
+              <input type="password" name="" placeholder="Password" required>
+            </div>
+  
+            <div class="mb-3">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                <label class="custom-control-label" for="cb1">Show password</label>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <button type="submit" class="btn btn-block ">
+                Log in
+              </button>
+            </div>
+  
+            <div class="text-right">
+              <a href="#" class="forget-link">
+                Forgot Password?
+              </a>
+            </div>
+  
+            
+  
+            <hr class="my-4">
+            <div class="text-center mb-2">
+              Don't have an account?
+              <a href="/signup" class="register-link">
+                Signup
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
