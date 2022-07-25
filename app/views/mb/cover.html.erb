@@ -8,26 +8,27 @@
 <div id="text-container">
     <p>ALWAYS RUNNING SHORT?</p>
     <p>MONEY BEE CAN HELP.</p>
-    <h1 id="slideshow-text"> &nbsp; </h1>
+    
     <button class="btn" id="get-started-btn">Get Started</button>
 </div>
 <div id="slideshow-div">
-    <%= image_tag('earn.png',alt: "logo", id: "earn-img", class: "slideshow-img hidden") %>
-    <%= image_tag('save.png',alt: "logo", id: "save-img", class: "hidden slideshow-img") %>
-    <%= image_tag('spend.png',alt: "logo", id: "spend-img", class: "hidden slideshow-img") %>
+    <%= image_tag('earn-img.png',alt: "logo", id: "earn-img", class: "slideshow-img hidden") %>
+    <%= image_tag('save-img.png',alt: "logo", id: "save-img", class: "hidden slideshow-img") %>
+    <%= image_tag('spend-img.png',alt: "logo", id: "spend-img", class: "hidden slideshow-img") %>
 </div>
 
 <style>
     #cover-logo{
         height: 50px;
+        margin-left: 50px;
     }
     #slideshow-div{
         position: absolute;
-        top: 28%;
-        right: 15%;
+        top: 13%;
+        right: 10%;
     }
     .slideshow-img{
-        height: 400px;
+        height: 600px;
         width: auto;
     }
     .navbar{
@@ -41,19 +42,14 @@
     height: auto;
    }
    .hidden{
-    animation-name: fadein;
-    animation-delay: 0s;
-    animation-duration: 4s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+    display: none;
    }
    #slideshow-text{
     color: #1A8367;
    }
    #text-container{
     position: absolute;
-    top: 28%;
+    top: 32%;
     left: 15%;
    }
    #text-container p {
@@ -69,11 +65,16 @@
     background-color: #58C479;
     color: white;
     font-size: x-large;
-    margin-top: 20px;
+    margin-top: 160px;
    }
-   /* #earn-img, #save-img, #spend-img, #slideshow-text {
-    display: none;
-   } */
+   #earn-img, #save-img, #spend-img {
+    animation-name: fadein;
+    animation-delay: 0s;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+   }
    @keyframes fadein{
     0%{
         opacity: 0;

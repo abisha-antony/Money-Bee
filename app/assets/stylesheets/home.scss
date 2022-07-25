@@ -1,0 +1,56 @@
+#sidebar{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #1A8367;
+}
+#side-bar-ul li a:hover{
+    background-color: #377349;
+}
+#active-tab{
+    background-color: #58C479;
+}
+#home-main-logo{
+    height: 40px;
+    width: auto;
+    margin-left: 55px;
+}
+.full-div{
+  background-color: pink;
+  height: 35%;
+  width: 67%;
+  margin-left: 14%;
+  margin-top: -25%;
+}
+.fst-box{
+    float: left;
+    width: 180px;
+    height: 160px;
+    background-color:saddlebrown;
+    border: #377349;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.sec-box{
+    float: left;
+    width: 180px;
+    height: 160px;
+    background-color:saddlebrown;
+    border: #377349;
+    margin-top: 40px;
+    margin-left: 200px;
+}
+.third-box{
+    float: left;
+    width: 180px;
+    height: 160px;
+    background-color:saddlebrown;
+    border: #377349;
+    margin-top: 40px;
+    margin-left: 210px;
+}
+#rupee{
+    height: 25%;
+    width: 78%;
+}

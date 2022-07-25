@@ -4,24 +4,15 @@ function recurse_img() {
 
     setTimeout(() => {
         hide_all();
-        slide_text.innerText = "EARN SMART"
-        document.getElementById('earn-img').classList.add("hidden")
-        document.getElementById('spend-img').classList.remove("hidden")
-        document.getElementById('save-img').classList.remove("hidden")
+        document.getElementById('earn-img').style.display = "block"
     }, 1000);
     setTimeout(() => {
         hide_all();
-        slide_text.innerText = "SAVE ABUNDANT"
-        document.getElementById('save-img').classList.add("hidden")
-        document.getElementById('spend-img').classList.remove("hidden")
-        document.getElementById('earn-img').classList.remove("hidden")
+        document.getElementById('save-img').style.display = "block"
     }, 5000);
     setTimeout(() => {
         hide_all();
-        slide_text.innerText = "SPEND WISE"
-        document.getElementById('spend-img').classList.add("hidden")
-        document.getElementById('earn-img').classList.remove("hidden")
-        document.getElementById('save-img').classList.remove("hidden")
+        document.getElementById('spend-img').style.display = "block"
     }, 9000);
     setTimeout(recurse_img , 13500);
 }
