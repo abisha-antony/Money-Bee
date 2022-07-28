@@ -1,0 +1,52 @@
+#add{
+    background-color:whitesmoke;
+   
+}
+table,th,td{
+    border: 1px solid black;
+}
+#inc-btn{
+    margin-left: 5px;
+}
+#search{
+    width: 40px;
+    height: 38px;
+    background-color:#1A8367;
+}
+
+#main-div{
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    width: 80%;
+}
+
+.input-group{
+    width: 50%;
+}
+.add_inc{
+    margin-left: 67%;
+}
+.inc-table-div{
+    background-color: rgb(255, 254, 254);
+   
+}
+
+.form_main input{
+    margin-top: 23px;
+    width: 80%;
+    margin-left: 23px;
+}
+#popup-form{
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    background-color: rgb(241, 241, 241);
+    border: 1px solid rgb(156, 156, 156);
+    opacity: 90%;
+    width: 30%;
+    height: fit-content;
+    padding: 40px;
+    border-radius: 10px;
+}

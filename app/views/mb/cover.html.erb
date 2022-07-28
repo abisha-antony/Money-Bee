@@ -1,6 +1,7 @@
 <nav class="navbar navbar-fluid bg-light">
   <div class="container-fluid">
     <a class="navbar-brand"><%= image_tag('cover-logo.png',alt: "logo", id: "cover-logo") %></a>
+    <a href="/home"> <button class="btn" id="get-started-btn">Explore</button></a>
   </div>
 </nav>
 <%= image_tag('pattern.png',alt: "logo", id: "cover-bg") %>
@@ -8,8 +9,7 @@
 <div id="text-container">
     <p>ALWAYS RUNNING SHORT?</p>
     <p>MONEY BEE CAN HELP.</p>
-    
-    <button class="btn" id="get-started-btn">Get Started</button>
+   
 </div>
 <div id="slideshow-div">
     <%= image_tag('earn-img.png',alt: "logo", id: "earn-img", class: "slideshow-img hidden") %>
@@ -65,7 +65,7 @@
     background-color: #58C479;
     color: white;
     font-size: x-large;
-    margin-top: 160px;
+    margin-left: -300px;
    }
    #earn-img, #save-img, #spend-img {
     animation-name: fadein;

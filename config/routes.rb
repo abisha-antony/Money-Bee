@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get "/login", to: "home#render_login"
   get "/signup", to: "home#render_signup"
   get "/cover", to: "home#render_cover"
+
   match '/create_new_user', :to => 'users#register', :via => :post
   match '/to_login_handler', :to => 'session#login_handler', :via => :post
+  
+  get "/income", to: "home#render_income"
+  get "/expense", to: "home#render_expense"
 end

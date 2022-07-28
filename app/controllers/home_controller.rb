@@ -11,4 +11,10 @@ class HomeController < ApplicationController
     def render_signup
         render "mb/reg"
     end
+    def render_income
+        render "mb/income"
+    end
+    def render_expense
+        render "mb/expense"
+    end
 end

@@ -15,25 +15,24 @@
         <h4 class="title text-center mt-4">
           Register 
         </h4>
-        <form class="form-box px-3">
+        <form class="form-box px-3" action="/create_new_user" method="post">
           <div class="form-input">
-            <span><i class="fa fa-envelope-o"></i></span>
-            <input type="text" name="" placeholder="Username" tabindex="10" required>
+            <span><i class="fa-solid fa-user"></i></span>
+            <input type="text" name="user[name]" placeholder="Username" tabindex="10" required>
           </div>
 
-
           <div class="form-input">
             <span><i class="fa fa-envelope-o"></i></span>
-            <input type="email" name="" placeholder="Mail Address" tabindex="10" required>
+            <input type="email" name="user[email]" placeholder="Mail Address" tabindex="10" required>
           </div>
           <div class="form-input">
             <span><i class="fa-solid fa-key"></i></span>
-            <input type=" password" name="" placeholder="Create Password" required>
+            <input type=" password" name="user[password]" placeholder="Create Password" required>
           </div>
 
           <div class="form-input">
             <span><i class="fa-solid fa-key"></i></span>
-            <input type="password" name="" placeholder="Confirm Password" required>
+            <input type="password" placeholder="Confirm Password" required>
           </div>
 
           <div class="mb-3">
@@ -44,8 +43,8 @@
           </div>
 
           <div class="mb-3">
-            <button type="submit" class="btn btn-block ">
-              Log in
+            <button type="submit" class="btn btn-block" >
+              Register
             </button>
           </div>
 
@@ -59,9 +58,9 @@
 
           <hr class="my-4">
           <div class="text-center mb-2">
-            Don't have an account?
+            Already have an account?
             <a href="/login" class="register-link">
-              Signup
+              Signin
             </a>
           </div>
         </form>

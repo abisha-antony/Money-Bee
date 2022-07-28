@@ -12,19 +12,19 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
       <li class="nav-item">
-        <a href="#" class="nav-link text-white" id="active-tab" aria-current="page">
+        <a href="/home" class="nav-link text-white" id="active-tab" aria-current="page">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Home
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-white" aria-current="page">
+        <a href="/income" class="nav-link text-white" aria-current="page">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Income
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/expense" class="nav-link text-white">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
           Expense
         </a>
@@ -50,17 +50,17 @@
     </ul>
     <hr>
 
-  </div>
-
+  </div >
+  <div class="dashboard">
   <div class="full-div">
-    <div class="fst-box">
-      <i class="fa-solid fa-indian-rupee-sign icon-3x" id="rupee"></i>
+    <div class="box">
+      <%= image_tag('income.png',alt: "logo", id: "inc_img") %>
     </div>
-    <div class="sec-box">
-
+    <div class="box">
+      <%= image_tag('expense.png',alt: "logo", id: "exp_img") %>
     </div>
-    <div class="third-box">
-      
+    <div class="box">
+      <%= image_tag('report.png',alt: "logo", id: "rep_img") %>
     </div>
-
   </div>
+</div>
