@@ -13,32 +13,33 @@
 
       <div class="card-body">
         <h4 class="title text-center mt-4">
-          Register 
+          Register
         </h4>
         <form class="form-box px-3" action="/create_new_user" method="post">
+         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
           <div class="form-input">
-            <span><i class="fa-solid fa-user"></i></span>
+            <span><i class="fa-solid fa-user icns"></i></span>
             <input type="text" name="user[name]" placeholder="Username" tabindex="10" required>
           </div>
 
           <div class="form-input">
-            <span><i class="fa fa-envelope-o"></i></span>
+            <span><i class="fa-solid fa-envelope icns"></i></span>
             <input type="email" name="user[email]" placeholder="Mail Address" tabindex="10" required>
           </div>
           <div class="form-input">
-            <span><i class="fa-solid fa-key"></i></span>
-            <input type=" password" name="user[password]" placeholder="Create Password" required>
+            <span><i class="fa-solid fa-key icns"></i></span>
+            <input type="password" id="password" name="user[password]" placeholder="Create Password" required>
           </div>
 
           <div class="form-input">
-            <span><i class="fa-solid fa-key"></i></span>
-            <input type="password" placeholder="Confirm Password" required>
+            <span><i class="fa-solid fa-key icns"></i></span>
+            <input type="password" id="cpassword" placeholder="Confirm Password" required>
           </div>
-
+          <div><p class="text-danger"><%= flash[:error] %></p></div>
           <div class="mb-3">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="cb1" name="">
-              <label class="custom-control-label" for="cb1">Show password</label>
+              <input type="checkbox" class="custom-control-input" id="show-pass-cb">
+              <label class="custom-control-label">Show password</label>
             </div>
           </div>
 
@@ -54,7 +55,7 @@
             </a>
           </div>
 
-          
+
 
           <hr class="my-4">
           <div class="text-center mb-2">
@@ -68,3 +69,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag 'reg-login' %>

@@ -1,9 +1,9 @@
-
+<% cur_user = session[:user] %>
   <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <%= image_tag('mb-mini.png',alt: "logo", id: "home-main-logo") %>
-      
+
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
@@ -50,12 +50,12 @@
         </li>
     </ul>
     <hr>
-    
+
     </div>
 </div>
 
 <div id="main-div" class="container">
-  <h3 class="mb-5">Manage your Income</h3>
+  <h3 class="mb-5">Manage your Income</h3> <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
   <div class="row mt-2" >
     <div class="col-5">
       <input type="search" class="form-control" placeholder="Search Income" />
@@ -73,7 +73,7 @@
         <thead>
           <tr>
             <th scope="col">S.No</th>
-            <th scope="col">category</th>
+
             <th scope="col" colspan="2">Description</th>
             <th scope="col">Amount</th>
           </tr>
@@ -81,30 +81,31 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
             <td colspan="2">Otto</td>
             <td>@mdo</td>
           </tr>
         </tbody>
       </table>
-      
+
     </div>
     <div class="col-3">
-       
+
     </div>
   </div>
 </div>
 
 <div id="popup-form">
   <h2>Add Income</h2>
-  <form>
+  <form action="/create_new_income" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input name="income[users_id]" type="hidden" value="<%= cur_user['id'] %>">
     <div class="form-group">
       <label >Description</label>
-      <input type="text" class="form-control" placeholder="Enter Description">
+      <input type="text" name="income[description]" class="form-control" placeholder="Enter Description (optional)">
     </div> <br>
     <div class="form-group">
       <label>Income Amount</label>
-      <input type="password" class="form-control" placeholder="Enter Amount">
+      <input type="number" name="income[amount]" class="form-control" placeholder="Enter Amount" required>
     </div> <br>
     <button type="submit" id="popup-submit" class="btn-c">Submit</button>
     <button type="button" id="popup-cancel" class="btn-c">Cancel</button>

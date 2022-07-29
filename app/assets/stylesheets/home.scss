@@ -1,3 +1,6 @@
+.icns{
+    color: #58C479;
+}
 #sidebar{
     height: 100%;
     position: absolute;
@@ -33,10 +36,10 @@
     text-align: center;
     width: 200px;
     height: 200px;
-    // box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), 
+    // box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
     // inset 10px 10px 15px rgba(70, 70, 70, 0.12);
     // background-color: yellow;
-    // border: rgb(136, 136, 136) solid ; 
+    // border: rgb(136, 136, 136) solid ;
     display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -48,7 +51,7 @@
   transition-property: box-shadow, transform;
   border: solid #58C479 ;
   border-width: .4px;
-  
+
 }
 
 .box:hover{
