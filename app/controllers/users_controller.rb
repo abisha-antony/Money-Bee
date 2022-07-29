@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
     def register
       user = User.new(user_params) #User - model's class name
       if user.save
@@ -13,6 +12,6 @@ class UsersController < ApplicationController
 
     private
     def user_params
-       params.required(:user).permit(:name, :email, :password)
+       params.require(:user).permit(:name, :email, :password)
     end
 end

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/cover", to: "home#render_cover"
   post '/create_new_income', to: 'main#create_income'
 
-  match '/create_new_user', :to => 'users#register', :via => :post
+  post '/create_new_user', to: 'user#register'
   match '/to_login_handler', :to => 'session#login_handler', :via => :post
 
   get "/income", to: "home#render_income"
