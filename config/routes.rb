@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post '/create_new_user', to: 'user#register'
   match '/to_login_handler', :to => 'session#login_handler', :via => :post
+  post '/create_new_expense', :to => 'expense#create_new_expense'
 
   get "/income", to: "home#render_income"
   get "/expense", to: "home#render_expense"

@@ -78,12 +78,14 @@
           </tr>
         </thead>
         <tbody>
+        <%Expense.all.each do |e|%>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td colspan="2">Otto</td>
-            <td>@mdo</td>
+            <th scope="row"><%= e.id%></th>
+            <td><%= e.category%></td>
+            <td colspan="2"><%= e.description%></td>
+            <td><%= e.amount%></td>
           </tr>
+          <%end%>
         </tbody>
       </table>
 
@@ -97,18 +99,21 @@
 
 <div id="popup-form">
   <h2>Add Expense</h2>
-  <form>
+   <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
+  <form action="/create_new_expense" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
     <div class="form-group">
         <label >Category</label>
-        <input type="text" class="form-control" placeholder="Enter Description">
+        <input type="text" class="form-control" name="expense[category]" placeholder="Enter Description">
       </div> <br>
     <div class="form-group">
       <label >Description</label>
-      <input type="text" class="form-control" placeholder="Enter Description">
+      <input type="text" class="form-control" name="expense[description]" placeholder="Enter Description">
     </div> <br>
     <div class="form-group">
       <label>Expense Amount</label>
-      <input type="password" class="form-control" placeholder="Enter Amount">
+      <input type="number" class="form-control" name="expense[amount]" placeholder="Enter Amount">
     </div> <br>
     <button type="submit" id="popup-submit" class="btn-c">Submit</button>
     <button type="button" id="popup-cancel" class="btn-c">Cancel</button>
