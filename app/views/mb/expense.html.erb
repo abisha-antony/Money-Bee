@@ -36,7 +36,7 @@
         </a>
         </li>
         <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/debt_recorder" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
             Record Debt
         </a>
@@ -68,6 +68,7 @@
   </div>
   <div class="row d-flex mt-4">
     <div class="inc-table-div col-9">
+        
       <table class="table table-hover">
         <thead>
           <tr>
@@ -75,20 +76,28 @@
             <th scope="col">category</th>
             <th scope="col" colspan="2">Description</th>
             <th scope="col">Amount</th>
+            <th scope="col"></th>
+
           </tr>
         </thead>
         <tbody>
+        <% s_no = 1 %>
         <%Expense.all.each do |e|%>
           <tr>
-            <th scope="row"><%= e.id%></th>
+            <th scope="row"><%= s_no %></th>
+            <% s_no = s_no + 1 %>
             <td><%= e.category%></td>
             <td colspan="2"><%= e.description%></td>
-            <td><%= e.amount%></td>
+            <td><%= e.amount %></td>
+            <td>
+              <a href="/edit_expense/<%= e.id %>"> <i class="fa-solid fa-pen"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
+              <a href="//<%= e.id %>"><i class="fa-solid fa-trash"></i></a>
+            </td>
           </tr>
           <%end%>
+
         </tbody>
       </table>
-
     </div>
     <div class="col-3">
 
@@ -96,13 +105,12 @@
   </div>
 </div>
 
-
 <div id="popup-form">
   <h2>Add Expense</h2>
    <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
   <form action="/create_new_expense" method="post">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
+    <input type="hidden" name="expense[id]" value="<%=  %>">
     <div class="form-group">
         <label >Category</label>
         <input type="text" class="form-control" name="expense[category]" placeholder="Enter Description">
@@ -118,7 +126,6 @@
     <button type="submit" id="popup-submit" class="btn-c">Submit</button>
     <button type="button" id="popup-cancel" class="btn-c">Cancel</button>
   </form>
-
 </div>
 
 <%=javascript_include_tag 'income'%>

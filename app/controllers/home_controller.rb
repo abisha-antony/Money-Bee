@@ -17,4 +17,15 @@ class HomeController < ApplicationController
     def render_expense
         render "mb/expense"
     end
+
+    def render_inc_edit
+        render 'mb/inc_edit'
+    end
+
+    def render_exp_edit
+        render 'mb/exp_edit'
+    end
+    def render_debt
+        render 'mb/debt_recorder'
+    end
 end

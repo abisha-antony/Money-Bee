@@ -1,5 +1,4 @@
-<% cur_user = session[:user] %>
-  <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <%= image_tag('mb-mini.png',alt: "logo", id: "home-main-logo") %>
@@ -19,15 +18,15 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="/income" class="nav-link text-white" id="active-tab" aria-current="page">
+        <a href="/income" class="nav-link text-white"aria-current="page">
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
             Income
         </a>
         </li>
         <li>
-        <a href="/expense" class="nav-link text-white">
+        <a href="/expense" class="nav-link text-white"   >
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-            Expense
+           Expense
         </a>
         </li>
         <li>
@@ -37,7 +36,7 @@
         </a>
         </li>
         <li>
-        <a href="/debt_recorder" class="nav-link text-white">
+        <a href="/debt_recorder" class="nav-link text-white" id="active-tab">
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
             Record Debt
         </a>
@@ -55,46 +54,51 @@
 </div>
 
 <div id="main-div" class="container">
-  <h3 class="mb-5">Manage your Income</h3> <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
+  <h3 class="mb-5">Itemize Your debt_recordss</h3>
   <div class="row mt-2" >
     <div class="col-5">
-      <input type="search" class="form-control" placeholder="Search Income" />
+      <input type="search" class="form-control" placeholder="Search debt_recordss" />
     </div>
     <div class="col-4">
       <a href=""><button class="btn-c"><i class="fas fa-search"></i>&nbsp; Search</button></a>
     </div>
     <div class="col-2">
-      <button type="button" class="btn-c" id="add-action-btn"><i class="fa-solid fa-plus"></i>&nbsp; Add Income</button>
+      <button type="button" class="btn-c" id="add-action-btn"><i class="fa-solid fa-plus"></i>&nbsp; Add Debt
+    </button>
     </div>
   </div>
   <div class="row d-flex mt-4">
     <div class="inc-table-div col-9">
+        
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">S.No</th>
-
-            <th scope="col" colspan="2">Description</th>
-            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">owed to</th>
+            <th scope="col" colspan="2">Amount</th>
+            <th scope="col">Description</th>
             <th scope="col"></th>
+
           </tr>
         </thead>
         <tbody>
-        <% s_no = 1 %>
-        <% Income.where(users_id: cur_user["id"]).map do |t|%>
+      <% s_no = 1 %>
+        <%DebtRecorder.all.each do |e|%>
           <tr>
             <th scope="row"><%= s_no %></th>
             <% s_no = s_no + 1 %>
-            <td colspan="2"><%= t.description%></td>
-            <td><%= t.amount %></td>
+            <td><%= e.owed_to%></td>
+            <td colspan="2"><%= e.description%></td>
+            <td><%= e.amount %></td>
             <td>
-           <a href="/edit_income/<%= t.id%>"> <i class="fa-solid fa-pen"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
-             <a href="/delete/<%= t.id %>"><i class="fa-solid fa-trash"></i></a></td>
+              <a href="/edit_debt_records/<%= e.id %>"> <i class="fa-solid fa-pen"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
+              <a href="//<%= e.id %>"><i class="fa-solid fa-trash"></i></a>
+            </td>
           </tr>
           <%end%>
+
         </tbody>
       </table>
-
     </div>
     <div class="col-3">
 
@@ -103,22 +107,30 @@
 </div>
 
 <div id="popup-form">
-  <h2>Add Income</h2>
-  <form action="/create_income" method="post">
+  <h2>Add Debt</h2>
+   <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
+  <form action="/create_debt_records" method="post">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-    <input name="income[users_id]" type="hidden" value="<%= cur_user['id'] %>" >
+    <input type="hidden" name="debt_recorders[id]" value="<%=  %>">
     <div class="form-group">
-      <label >Description</label>
-      <input type="text" name="income[description]" class="form-control" placeholder="Enter Description (optional)">
+        <label >Date</label>
+        <input type="date" class="form-control" name="debt_recorders[category]" placeholder="Enter Description">
+      </div> <br>
+    <div class="form-group">
+      <label >Owed to</label>
+      <input type="text" class="form-control" name="debt_recorders[description]" placeholder="Enter Description">
     </div> <br>
     <div class="form-group">
-      <label>Income Amount</label>
-      <input type="number" name="income[amount]" class="form-control" placeholder="Enter Amount" required>
+      <label>Amount</label>
+      <input type="number" class="form-control" name="debt_recorders[amount]" placeholder="Enter Amount">
     </div> <br>
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name="debt_recorders[amount]" placeholder="Enter Amount">
+      </div> <br>
     <button type="submit" id="popup-submit" class="btn-c">Submit</button>
     <button type="button" id="popup-cancel" class="btn-c">Cancel</button>
   </form>
-
 </div>
 
-<%= javascript_include_tag 'income' %>
+<%=javascript_include_tag 'income'%>
