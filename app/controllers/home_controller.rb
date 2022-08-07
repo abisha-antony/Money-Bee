@@ -28,4 +28,7 @@ class HomeController < ApplicationController
     def render_debt
         render 'mb/debt_recorder'
     end
+    def render_debt_edit
+        render 'mb/debt_edit'
+    end
 end

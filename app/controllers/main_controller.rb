@@ -28,8 +28,9 @@ class MainController < ApplicationController
     end
 
     
-    def delete_income       
-       @dlt_id = Income.find(params[:id])
+    def delete_income  
+       id =params[:id]     
+       @dlt_id = Income.find(id)
        if @dlt_id.destroy
         redirect_to "/income"
        end
@@ -69,6 +70,20 @@ class MainController < ApplicationController
         redirect_to "/expense"
         end
     end
+    def delete_debt
+        id = params[:id]
+        @debt_dlt =  DebtRecorder.find(id)
+        if @debt_dlt.destroy
+        redirect_to "/debt_recorder"
+        end
+    end
+    def dbt_edit
+        @debt_upd = DebtRecorder.find(debt_upd_params[:id])
+        if @debt_upd.update(debt_upd_params)
+        redirect_to "/debt_recorder"
+        end
+    end
+
 
     private
     def income_params
@@ -86,4 +101,8 @@ class MainController < ApplicationController
     def e_update_params
         params.require(:expense).permit(:id, :category, :description, :amount)
     end
+    def debt_upd_params
+        params.require(:debt_recorders).permit(:id ,:date, :owed_to, :amount, :description)
+    end
+
 end

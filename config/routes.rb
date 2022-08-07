@@ -24,5 +24,8 @@ Rails.application.routes.draw do
   get "/debt_recorder", to: "home#render_debt"
 
   match '/create_debt_records', :to=> 'main#debt_recorder', :via => :post
+  match '/dlt_debt/:id', :to=> "main#delete_debt", :via=> :get
+  get "/edit_debt_records/:ej", :to=> "home#render_debt_edit", as: :ej
+  post "/update_debt", :to=> "main#dbt_edit"
 
 end
