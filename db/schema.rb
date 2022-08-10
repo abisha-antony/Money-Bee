@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_05_123938) do
+ActiveRecord::Schema.define(version: 2022_08_09_050355) do
 
   create_table "debt_recorders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "date"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2022_08_05_123938) do
     t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "feedbacks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "feedback"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_feedbacks_on_users_id"
   end
 
   create_table "incomes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -52,8 +60,10 @@ ActiveRecord::Schema.define(version: 2022_08_05_123938) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role", default: "customer"
   end
 
+  add_foreign_key "feedbacks", "users", column: "users_id"
   add_foreign_key "incomes", "users", column: "users_id"
   add_foreign_key "main_balances", "users", column: "users_id"
 end

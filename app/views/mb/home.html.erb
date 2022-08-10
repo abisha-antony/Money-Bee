@@ -1,8 +1,6 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-      <%= image_tag('mb-mini.png',alt: "logo", id: "home-main-logo") %>
-      <!-- <span class="fs-4">Sidebar</span> -->
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <%= image_tag('cover-logo.png',alt: "logo", id: "home-main-logo") %>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
@@ -13,54 +11,66 @@
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
       <li class="nav-item">
         <a href="/home" class="nav-link text-white" id="active-tab" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-          Home
+          <i class="fa-solid fa-house"></i>&nbsp;&nbsp; Home
         </a>
       </li>
       <li class="nav-item">
         <a href="/income" class="nav-link text-white" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+        <i class="fa-solid fa-sack-dollar"></i>&nbsp;&nbsp;
           Income
         </a>
       </li>
       <li>
         <a href="/expense" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+          <i class="fa-solid fa-wallet"></i>&nbsp;&nbsp;
           Expense
         </a>
       </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-         Savings
-        </a>
-      </li>
-      <li>
+            <li>
         <a href="/debt_recorder" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+         <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
          Record Debt
         </a>
       </li>
       <li>
         <a href="#" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-          Category
+          <i class="fa-solid fa-comments"></i>&nbsp;&nbsp;
+         feedback
         </a>
       </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+           <i class="fa-solid fa-clipboard"></i> &nbsp;&nbsp; Report
+        </a>
+        </li>
     </ul>
     <hr>
+    
+  <a href="/logout" id="logout"><i class="fa-solid fa-right-from-bracket text-white"></i>&nbsp; Logout</a>
+  </div>
 
-  </div >
-  <div class="dashboard">
-  <div class="full-div">
-    <div class="box">
-      <%= image_tag('income.png',alt: "logo", id: "inc_img") %>
+<div id="home-top-div">
+  <div class="row" id="home-top-panel">
+    <div class="col-4 home-top-sub">
+      <i class="fa-solid fa-sack-dollar color-green mt-1"></i>
+      &nbsp; &nbsp;<p class="h4 mt-2">Income</p>
+      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;1500</p>
     </div>
-    <div class="box">
-      <%= image_tag('expense.png',alt: "logo", id: "exp_img") %>
+    <div class="col-4 home-top-sub">
+      <i class="fa-solid fa-wallet color-green mt-1"></i>
+      &nbsp; &nbsp;<p class="h4 mt-2">Expense</p>
+      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;50000</p>
     </div>
-    <div class="box">
-      <%= image_tag('report.png',alt: "logo", id: "rep_img") %>
+    <div class="col-3 home-top-sub">
+      <i class="fa-solid fa-piggy-bank color-green mt-1"></i>
+      &nbsp; &nbsp;<p class="h4 mt-2">Balance</p>
+      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;50</p>
     </div>
+  </div>
+  <div id="home-graph-div">
+    
+  </div>
+  <div>
+
   </div>
 </div>

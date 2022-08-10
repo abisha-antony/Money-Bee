@@ -9,6 +9,10 @@ class SessionController < ApplicationController
             redirect_to "/login"
         end
     end
+    def logout
+        session[:user] = nil
+        redirect_to "/signup"
+    end
 
     private
     def user_params

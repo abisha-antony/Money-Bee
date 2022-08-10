@@ -1,5 +1,11 @@
+a{
+    text-decoration: none !important;
+}
 .icns{
     color: #58C479;
+}
+#logo-text{
+    margin-left: -70px;
 }
 #sidebar{
     height: 100%;
@@ -19,46 +25,6 @@
     width: auto;
     margin-left: 55px;
 }
-.full-div{
-    display:flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    margin-left: 10%;
-
-}
-.box{
-    // float: left;
-    // border: #377349;
-    margin-left: 100px;
-    justify-content: space-between;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    text-align: center;
-    width: 200px;
-    height: 200px;
-    // box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
-    // inset 10px 10px 15px rgba(70, 70, 70, 0.12);
-    // background-color: yellow;
-    // border: rgb(136, 136, 136) solid ;
-    display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: box-shadow, transform;
-  transition-property: box-shadow, transform;
-  border: solid #58C479 ;
-  border-width: .4px;
-
-}
-
-.box:hover{
-    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-}
 
 #rupee{
     height: 25%;
@@ -76,13 +42,7 @@
     height: 135px;
     width: auto;
 }
-.dashboard{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 5%;
-}
+
 .btn-c {
     height: fit-content;
     width: auto;
@@ -99,4 +59,39 @@
 }
 .fa-trash{
     color: #1A8367;
+}
+.color-green{
+    color: #1A8367;
+    font-size: 40px;
+}
+// home-page
+#home-top-div{
+    margin-top: 20px;
+    position: absolute;
+    top: 0%;
+    left: 22%;
+    width: 76%;
+}
+#home-top-panel{
+    height: 90px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.home-top-sub{
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    display: inline-flex;
+}
+#home-graph-div{
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    padding: 10px;
+    width: 93%;
+    height: 400px;
+}
+#logout{
+    color: white !important;
+    margin-left: 82px;
 }

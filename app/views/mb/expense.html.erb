@@ -13,38 +13,38 @@
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
         <li class="nav-item">
         <a href="/home" class="nav-link text-white"  aria-current="page">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+           <i class="fa-solid fa-house"></i>&nbsp;&nbsp;
             Home
         </a>
         </li>
         <li class="nav-item">
         <a href="/income" class="nav-link text-white"aria-current="page">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+           <i class="fa-solid fa-sack-dollar"></i>&nbsp;&nbsp;
             Income
         </a>
         </li>
         <li>
         <a href="#" class="nav-link text-white"  id="active-tab" >
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+              <i class="fa-solid fa-wallet"></i>&nbsp;&nbsp;
             Expense
         </a>
         </li>
         <li>
-        <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-            Savings
-        </a>
-        </li>
-        <li>
         <a href="/debt_recorder" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+             <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
             Record Debt
         </a>
         </li>
         <li>
         <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-            Category
+            <i class="fa-solid fa-comments"></i>&nbsp;&nbsp;
+          feedback
+        </a>
+        </li>
+         <li>
+        <a href="#" class="nav-link text-white">
+        <i class="fa-solid fa-file-chart-column"></i>
+          Report
         </a>
         </li>
     </ul>
@@ -56,12 +56,14 @@
 <div id="main-div" class="container">
   <h3 class="mb-5">Itemize Your Expenses</h3>
   <div class="row mt-2" >
-    <div class="col-5">
-      <input type="search" class="form-control" placeholder="Search Expenses" />
+  <div class="col-5">
+  <form>
+      <input type="search" name="search" class="form-control" placeholder="Search Expenses" />
     </div>
     <div class="col-4">
-      <a href=""><button class="btn-c"><i class="fas fa-search"></i>&nbsp; Search</button></a>
+      <button type="submit"class="btn-c"><i class="fas fa-search"></i>&nbsp; Search</button>
     </div>
+  </form>
     <div class="col-2">
       <button type="button" class="btn-c" id="add-action-btn"><i class="fa-solid fa-plus"></i>&nbsp; Add Expense</button>
     </div>
@@ -90,8 +92,9 @@
             <td colspan="2"><%= e.description%></td>
             <td><%= e.amount %></td>
             <td>
+
               <a href="/edit_expense/<%= e.id %>"> <i class="fa-solid fa-pen"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
-              <a href="//<%= e.id %>"><i class="fa-solid fa-trash"></i></a>
+              <a href="/exp_dlt/<%= e.id %>"><i class="fa-solid fa-trash"></i></a>
             </td>
           </tr>
           <%end%>
@@ -108,7 +111,7 @@
 <div id="popup-form">
   <h2>Add Expense</h2>
    <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
-  <form action="/create_new_expense" method="post">
+  <form action="/create_expense" method="post">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input type="hidden" name="expense[id]" value="<%=  %>">
     <div class="form-group">

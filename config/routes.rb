@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/login", to: "home#render_login"
   get "/signup", to: "home#render_signup"
   get "/cover", to: "home#render_cover"
-  
+  get "/logout", to: "session#logout"
   get "/income", to: "home#render_income"
   get "/expense", to: "home#render_expense"
   post '/create_new_user', to: 'users#register'
@@ -27,5 +27,8 @@ Rails.application.routes.draw do
   match '/dlt_debt/:id', :to=> "main#delete_debt", :via=> :get
   get "/edit_debt_records/:ej", :to=> "home#render_debt_edit", as: :ej
   post "/update_debt", :to=> "main#dbt_edit"
-
+  get "/feedback", to: "feedback#feedback"
+  get "/report" , to: "report#rep"
+  post '/save_feedback', to:"feedback#create_feedback"
+  get 'search', to: 'feedback#search '
 end
