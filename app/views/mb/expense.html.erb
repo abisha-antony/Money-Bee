@@ -1,7 +1,6 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <%= image_tag('mb-mini.png',alt: "logo", id: "home-main-logo") %>
+        <%= image_tag('cover-logo.png',alt: "logo", id: "home-main-logo") %>
 
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -36,14 +35,14 @@
         </a>
         </li>
         <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/feedback" class="nav-link text-white">
             <i class="fa-solid fa-comments"></i>&nbsp;&nbsp;
           feedback
         </a>
         </li>
          <li>
-        <a href="#" class="nav-link text-white">
-        <i class="fa-solid fa-file-chart-column"></i>
+        <a href="/report" class="nav-link text-white">
+        <i class="fa-solid fa-clipboard"></i> &nbsp;&nbsp;
           Report
         </a>
         </li>
@@ -103,7 +102,6 @@
       </table>
     </div>
     <div class="col-3">
-
     </div>
   </div>
 </div>
@@ -113,7 +111,7 @@
    <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
   <form action="/create_expense" method="post">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="expense[id]" value="<%=  %>">
+    <input type="hidden" name="expense[users_id]" value="<%= session[:user]['id'] %>">
     <div class="form-group">
         <label >Category</label>
         <input type="text" class="form-control" name="expense[category]" placeholder="Enter Description">

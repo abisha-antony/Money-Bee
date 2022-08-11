@@ -1,9 +1,14 @@
 class MainController < ApplicationController
-
     def create_income
         if session[:user].nil?
             flash[:error] = "login to add Income"
         else
+            main_bal = MainBalance.find_by(users_id: get_user_id)
+            sum = params[:income][:amount].to_i + main_bal["amount"]
+            main_bal.update(
+                amount: sum,
+            )
+            main_bal.save
             income = Income.new(income_params)
             if income.save
                 flash[:notice] = "Income Added Successfully !"
@@ -26,7 +31,6 @@ class MainController < ApplicationController
             end
         end
     end
-
     
     def delete_income  
        id =params[:id]     
@@ -47,6 +51,12 @@ class MainController < ApplicationController
         if session[:user].nil?
             flash[:error] = "login to add Income"
         else
+            main_bal = MainBalance.find_by(users_id: get_user_id)
+            diff = main_bal["amount"] - params[:expense][:amount].to_i
+            main_bal.update(
+                amount: diff,
+            )
+            main_bal.save
             expense = Expense.new(expense_params)
             if expense.save
                 flash[:notice] = "Income Added Successfully !"
@@ -56,7 +66,6 @@ class MainController < ApplicationController
                 redirect_to '/expense'
             end
         end
-
     end
     def delete_expense
         @inc_dlt = Expense.find(params[:ed])
@@ -84,8 +93,22 @@ class MainController < ApplicationController
         end
     end
 
+    def index
+        @data_keys = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+        ]
+        @data_values = [0, 10, 5, 2, 20, 30, 45]
+    end
 
     private
+    def get_user_id
+        session[:user]["id"]
+    end
     def income_params
         params.require(:income).permit( :description, :amount, :users_id)
     end
@@ -96,7 +119,7 @@ class MainController < ApplicationController
         params.require(:debt_recorders).permit(:date,:owed_to,:amount,:description)
     end
     def expense_params
-        params.require(:expense).permit(:category, :description, :amount)
+        params.require(:expense).permit(:category, :description, :amount, :users_id)
     end
     def e_update_params
         params.require(:expense).permit(:id, :category, :description, :amount)

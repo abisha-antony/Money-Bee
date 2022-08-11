@@ -1,5 +1,15 @@
 class HomeController < ApplicationController
     def render_home
+        expense = Expense.where(users_id: session[:user]['id']) 
+        @data_category = [] 
+        @data_data = []
+        expense.each do |x|
+            @data_category.push(x['category'])
+            @data_data.push(x['amount'])
+        end
+        p '=============='
+        p @data_category
+        p @data_data
         render "mb/home"
     end
     def render_cover

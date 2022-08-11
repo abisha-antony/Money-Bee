@@ -1,3 +1,4 @@
+<% cur_user = session[:user] %>
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <%= image_tag('cover-logo.png',alt: "logo", id: "home-main-logo") %>
@@ -33,13 +34,13 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/feedback" class="nav-link text-white">
           <i class="fa-solid fa-comments"></i>&nbsp;&nbsp;
          feedback
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white">
+        <a href="/report" class="nav-link text-white">
            <i class="fa-solid fa-clipboard"></i> &nbsp;&nbsp; Report
         </a>
         </li>
@@ -54,23 +55,45 @@
     <div class="col-4 home-top-sub">
       <i class="fa-solid fa-sack-dollar color-green mt-1"></i>
       &nbsp; &nbsp;<p class="h4 mt-2">Income</p>
-      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;1500</p>
+      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;<%=Income.where(users_id: cur_user['id']).sum(:amount)%></p>
     </div>
     <div class="col-4 home-top-sub">
       <i class="fa-solid fa-wallet color-green mt-1"></i>
       &nbsp; &nbsp;<p class="h4 mt-2">Expense</p>
-      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;50000</p>
+      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;<%=Expense.where(users_id: cur_user['id']).sum(:amount)%></p>
     </div>
     <div class="col-3 home-top-sub">
       <i class="fa-solid fa-piggy-bank color-green mt-1"></i>
       &nbsp; &nbsp;<p class="h4 mt-2">Balance</p>
-      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;50</p>
+      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;<%= MainBalance.find_by(users_id: cur_user['id'])["amount"] %></p>
     </div>
   </div>
   <div id="home-graph-div">
-    
+      <div class="container">
+        <canvas id="myChart" width="600px" height="200px" data-labels="<%= @data_category %>"
+          data-data="<%= @data_data %>"></canvas>   
+      </div>
   </div>
   <div>
 
   </div>
 </div>
+<script>
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const massPopChart = new Chart(ctx,{
+  type:'bar',
+      data:{
+          labels: JSON.parse(ctx.canvas.dataset.labels),
+          datasets: [{  
+          data: JSON.parse(ctx.canvas.dataset.data),
+      }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "MoneyBee's Expense Report"
+        }
+      }
+      });
+</script>
