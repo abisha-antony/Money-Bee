@@ -1,67 +1,62 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-      <%= image_tag('mb-mini.png',alt: "logo", id: "home-main-logo") %>
+      <%= image_tag('cover-logo.png',alt: "logo", id: "home-main-logo") %>
 
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
+        </ul>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
-      <li class="nav-item">
-        <a href="/home" class="nav-link text-white" id="active-tab" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-          Home
+        <li class="nav-item">
+        <a href="/home" class="nav-link text-white"  aria-current="page">
+              <i class="fa-solid fa-house"></i>&nbsp;&nbsp;
+            Home
         </a>
-      </li>
-      <li class="nav-item">
+        </li>
+        <li class="nav-item">
         <a href="/income" class="nav-link text-white" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-          Income
+               <i class="fa-solid fa-sack-dollar"></i>&nbsp;&nbsp;
+            Income
         </a>
-      </li>
-      <li>
+        </li>
+        <li>
         <a href="/expense" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Expense
+                    <i class="fa-solid fa-wallet"></i>&nbsp;&nbsp;
+            Expense
         </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-         Savings
-        </a>
-      </li>
-      <li>
+        </li>
+        
+        <li>
         <a href="/debt_recorder" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-         Record Debt
+             <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
+            Record Debt
         </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-         feedback
+        </li>
+        <li>
+        <a href="/feedback" class="nav-link text-white"  id="active-tab">
+           <i class="fa-solid fa-comments"></i>&nbsp;&nbsp;
+            feedback
         </a>
-      </li>
+        </li>
+       
     </ul>
     <hr>
-  <a href="/logout">Logout</a>
+ <a href="/logout" id="logout"><i class="fa-solid fa-right-from-bracket text-white"></i>&nbsp; Logout</a>
 </div>
 
 <form class="form-box px-3" action="/save_feedback" method="post">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <div class="form-input">
-    <textarea name="feedback" placeholder="Enter your feedback" id="feedback" tabindex="10" required cols="30" rows="10"></textarea>
+    <textarea name="feedback" placeholder="Enter your feedback" id="feedback" tabindex="10" required cols="70" rows="10"></textarea>
     </div>
 
   <div><p class="text-danger"><%= flash[:error] %></p></div>
 
   <div class="mb-3">
-    <button type="submit" class="btn btn-block ">
+    <button type="submit" class="btn btn-block " id="fb_btn">
       submit
     </button>
   </div>
@@ -73,5 +68,11 @@
     border: rgb(207, 207, 207) 1px solid;
     border-radius: 20px;
     padding: 10px;
+    margin-left: 20px;
+  }
+  #fb_btn{
+    width: 115px;
+    margin-left: 235px;
+    border-radius: 5px;
   }
 </style>

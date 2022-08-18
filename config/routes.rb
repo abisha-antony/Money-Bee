@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   
   get "/exp_dlt/:ed", to: "main#delete_expense", as: :ed
   get "/inc_dlt/:id", to: "main#delete_income", as: :id
-  
+  get '/debt_dlt/:dd', to: "main#delete_debt", as: :dd
+
+
   get "/edit_income/:ei", to: "home#render_inc_edit", as: :ei
   get "/edit_expense/:ee", to: "home#render_exp_edit", as: :ee
   post "/update_income", to: "main#update_income"
@@ -30,5 +32,16 @@ Rails.application.routes.draw do
   get "/feedback", to: "feedback#feedback"
   get "/report" , to: "report#rep"
   post '/save_feedback', to:"feedback#create_feedback"
-  get 'search', to: 'feedback#search '
+  get '/search', to: 'feedback#search '
+  get '/forgot_password', to: "forgot_password#render_forgot_pw"
+  get '/otp', to: "forgot_password#render_otp"
+
+  post '/generate_otp', to: 'forgot_password#generate_otp'
+  post '/verify_otp', to: 'forgot_password#verify_otp'
+  post '/new_password', to: 'forgot_password#new_password'
+
+  #get '/short', to: 'forgot_password#test_short'
+  post "/search_exp", to: 'search#search_expense'
+  post "/search_inc", to: 'search#search_income'
+  post "/search_debt", to: 'search#search_debt'
 end

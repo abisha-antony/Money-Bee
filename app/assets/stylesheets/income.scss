@@ -37,6 +37,7 @@ table,th,td{
     width: 80%;
     margin-left: 23px;
 }
+
 #popup-form{
     display: none;
     position: absolute;
@@ -49,4 +50,14 @@ table,th,td{
     height: fit-content;
     padding: 40px;
     border-radius: 10px;
+}
+
+#home-main-logo{
+    height: 40px;
+    width: auto;
+    margin-left: 55px;
+}
+
+#income-myChart{
+    margin-left: 75%;
 }

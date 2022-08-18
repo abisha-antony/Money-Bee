@@ -54,6 +54,17 @@ a{
     height: 40px;
     border-radius: 10px;
 }
+.btn-c-l{
+    height: fit-content;
+    width: auto;
+    padding: 5px;
+    border: none;
+    background-color: #58C479;
+    color: white;
+    text-decoration: none;
+    height: 40px;
+    border-radius: 10px;
+}
 .fa-pen{
     color: #1A8367;
 }
@@ -94,4 +105,16 @@ a{
 #logout{
     color: white !important;
     margin-left: 82px;
+}
+
+
+#confirm-box{
+    position:fixed;
+    top: 48%;
+    left: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    border: solid 1px black;
+    display: none;
 }
