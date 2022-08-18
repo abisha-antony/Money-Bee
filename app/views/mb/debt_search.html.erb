@@ -53,8 +53,7 @@
 <div id="main-div" class="container">
   <h3 class="mb-5">Itemize Your debt_recordss</h3>
   <div class="row mt-2" >
-   
-      <div class="col-5">
+          <div class="col-5">
         <form action="/search_debt" method="post">
         <input type="search" class="form-control" name="debt" placeholder="Search debt_recordss" />
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -63,7 +62,6 @@
         <button class="btn-c" type="submit"><i class="fas fa-search"></i>&nbsp; Search</button>
       </div>
     </form>
-    
     <div class="col-2">
       <button type="button" class="btn-c" id="add-action-btn"><i class="fa-solid fa-plus"></i>&nbsp; Add Debt
     </button>
@@ -87,7 +85,7 @@
         <tbody>
 
       <% s_no = 1 %>
-        <%DebtRecorder.where(users_id: cur_user['id']).map do |e|%>
+        <%DebtRecorder.where(users_id: cur_user["id"]).where("owed_to LIKE?", "%#{$debt_keyword}%").map do |e|%>
           <tr>
             <th scope="row"><%= s_no %></th>
             <% s_no = s_no + 1 %>
@@ -97,7 +95,7 @@
             <td><%= e.amount %></td>
             <td>
               <a href="/edit_debt_records/<%= e.id %>"> <i class="fa-solid fa-pen"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
-              <a data-id="<%=e.id %>" onclick="delete_confirm(this)"><i class="fa-solid fa-trash"></i></a>
+              <a href="//<%= e.id %>"><i class="fa-solid fa-trash"></i></a>
             </td>
           </tr>
           <%end%>
@@ -136,27 +134,7 @@
     <button type="button" id="popup-cancel" class="btn-c">Cancel</button>
   </form>
 </div>
-<div id="confirm-box">
-  <p>Are you sure do you want to delete this income?</p>
-  <div class="float-end">
-      <a href="" id="del-a"><button class="btn-c-l">Delete</button></a>
-      <button  class="btn-c-l" onclick="hide_box()">Cancel</button>
-  </div>
-</div>
 
-<script>
-  let main_div = document.getElementById("main-div");
-     let del_div = document.getElementById('confirm-box');
-    let delete_confirm = a => {
-        let del_id = a.getAttribute('data-id');
-        document.getElementById('del-a').href = "/debt_dlt/"+del_id
-        main_div.style.filter = "blur(5px)"
-        del_div.style.display = "block";
-  }
-  function hide_box() {
-        main_div.style.filter = "blur(0px)";
-        del_div.style.display = "none";
-  }
-</script>
+
 
 <%=javascript_include_tag 'income'%>

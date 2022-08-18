@@ -9,3 +9,15 @@ function show_password() {
     }
 }
 document.getElementById('show-pass-cb').addEventListener("change", show_password);
+
+document.getElementById('submit_btn').addEventListener('click', pw_validator);
+function pw_validator() {
+    let pw = document.getElementById('password').value
+    let cpw = document.getElementById('cpassword').value
+    if(pw == cpw){
+        let form = document.getElementById('sub-form');
+        form.submit();
+    }else {
+        document.getElementById('warn-div').innerText = "Password do not match"
+    }
+}

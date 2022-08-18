@@ -36,20 +36,28 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
-
+  config.action_mailer.perform_caching = true
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'example.com',
+    user_name: 'moneybeeofficial@gmail.com',
+    password: 'efjkbqaajmahfvol',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
-
+  
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
-
+  
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-
+  
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 

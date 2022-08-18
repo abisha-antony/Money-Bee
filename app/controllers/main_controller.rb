@@ -21,11 +21,13 @@ class MainController < ApplicationController
     end
 
     def debt_recorder
-        if session[:user].nil?
+        cur_user = session[:user]
+        if cur_user.nil?
             flash[:error] = "login to add debt"
         else
             debt = DebtRecorder.new(debt_params)
             if debt.save
+                PostMailer.with(to_email: cur_user["email"], name: cur_user["name"], params: params[:debt_recorders]).debt_reminder.deliver_now
                 flash[:notice] = "Debt added successfully !"
                 redirect_to '/debt_recorder'
             end
@@ -67,25 +69,29 @@ class MainController < ApplicationController
             end
         end
     end
+
     def delete_expense
         @inc_dlt = Expense.find(params[:ed])
         if @inc_dlt.destroy
         redirect_to "/expense"
         end
     end
+
     def update_expense
         @inc_upd = Expense.find(e_update_params[:id])
         if @inc_upd.update(e_update_params)
         redirect_to "/expense"
         end
     end
+
     def delete_debt
-        id = params[:id]
+        id = params[:dd]
         @debt_dlt =  DebtRecorder.find(id)
         if @debt_dlt.destroy
         redirect_to "/debt_recorder"
         end
     end
+
     def dbt_edit
         @debt_upd = DebtRecorder.find(debt_upd_params[:id])
         if @debt_upd.update(debt_upd_params)
@@ -93,17 +99,6 @@ class MainController < ApplicationController
         end
     end
 
-    def index
-        @data_keys = [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-        ]
-        @data_values = [0, 10, 5, 2, 20, 30, 45]
-    end
 
     private
     def get_user_id
@@ -116,7 +111,7 @@ class MainController < ApplicationController
         params.require(:income).permit(:id, :description, :amount)
     end
     def debt_params
-        params.require(:debt_recorders).permit(:date,:owed_to,:amount,:description)
+        params.require(:debt_recorders).permit(:date,:owed_to,:amount,:description, :users_id)
     end
     def expense_params
         params.require(:expense).permit(:category, :description, :amount, :users_id)

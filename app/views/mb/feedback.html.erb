@@ -41,26 +41,22 @@
             feedback
         </a>
         </li>
-        <li>
-        <a href="/report" class="nav-link text-white">
-           <i class="fa-solid fa-clipboard"></i> &nbsp;&nbsp; Report
-        </a>
-        </li>
+       
     </ul>
     <hr>
-  <a href="/logout">Logout</a>
+ <a href="/logout" id="logout"><i class="fa-solid fa-right-from-bracket text-white"></i>&nbsp; Logout</a>
 </div>
 
 <form class="form-box px-3" action="/save_feedback" method="post">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <div class="form-input">
-    <textarea name="feedback" placeholder="Enter your feedback" id="feedback" tabindex="10" required cols="30" rows="10"></textarea>
+    <textarea name="feedback" placeholder="Enter your feedback" id="feedback" tabindex="10" required cols="70" rows="10"></textarea>
     </div>
 
   <div><p class="text-danger"><%= flash[:error] %></p></div>
 
   <div class="mb-3">
-    <button type="submit" class="btn btn-block ">
+    <button type="submit" class="btn btn-block " id="fb_btn">
       submit
     </button>
   </div>
@@ -72,5 +68,11 @@
     border: rgb(207, 207, 207) 1px solid;
     border-radius: 20px;
     padding: 10px;
+    margin-left: 20px;
+  }
+  #fb_btn{
+    width: 115px;
+    margin-left: 235px;
+    border-radius: 5px;
   }
 </style>
