@@ -1,5 +1,6 @@
-class PostMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class PostMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -9,15 +10,14 @@ class PostMailer < ApplicationMailer
     email = params[:to_email]
     @name = params[:name]
     @parameters = params[:params]
-    mail(to: email,subject: "bla bla bla")
+    mail(to: email, subject: 'bla bla bla')
     # mail to: users.first.email
-  
   end
+
   def forgot_password
     email = params[:to_email]
     @name = params[:name]
     @otp = params[:otp]
-    mail(to: email, subject: "OTP for Password Reset")
-
+    mail(to: email, subject: 'OTP for Password Reset')
   end
 end
