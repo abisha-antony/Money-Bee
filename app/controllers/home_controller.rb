@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
+
   def render_home
     expense = Expense.where(users_id: session[:user]['id'])
     @data_category = []
@@ -12,6 +13,7 @@ class HomeController < ApplicationController
     p '=============='
     p @data_category
     p @data_data
+    p session[:user] 
     render 'mb/home'
   end
 

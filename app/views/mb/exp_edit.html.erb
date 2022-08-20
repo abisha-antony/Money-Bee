@@ -52,21 +52,23 @@
 <h2>Edit Expense</h2>
 <% cur_exp = Expense.find(params['ee']) %>
   <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
-<form action="/update_expense" method="post">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="expense[id]" value="<%= cur_exp['id'] %>">
-  <div class="form-group">
-      <label >Category</label>
-      <input type="text" class="form-control" name="expense[category]" value="<%= cur_exp['category'] %>">
+<div class="div-edit">
+  <form action="/update_expense" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="expense[id]" value="<%= cur_exp['id'] %>">
+    <div class="form-group">
+        <label >Category</label>
+        <input type="text" class="form-control" name="expense[category]" value="<%= cur_exp['category'] %>">
+      </div> <br>
+    <div class="form-group">
+      <label >Description</label>
+      <input type="text" class="form-control" name="expense[description]" value="<%= cur_exp['description'] %>">
     </div> <br>
-  <div class="form-group">
-    <label >Description</label>
-    <input type="text" class="form-control" name="expense[description]" value="<%= cur_exp['description'] %>">
-  </div> <br>
-  <div class="form-group">
-    <label>Expense Amount</label>
-    <input type="number" class="form-control" name="expense[amount]" value="<%= cur_exp['amount'] %>">
-  </div> <br>
-  <button type="submit" id="popup-submit" class="btn-c">Edit</button>
-  <a href="/expense"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
-</form>
+    <div class="form-group">
+      <label>Expense Amount</label>
+      <input type="number" class="form-control" name="expense[amount]" value="<%= cur_exp['amount'] %>">
+    </div> <br>
+    <button type="submit" id="popup-submit" class="btn-c">Edit</button>
+    <a href="/expense"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
+  </form>
+</div>

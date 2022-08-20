@@ -136,6 +136,48 @@
 
 <%= javascript_include_tag 'income' %>
 
+<script>
 
+let div = document.getElementsByClassName("col-3")
+// div.style.backgroundColor = "red";
+  const ctx = document.getElementById('income-myChart').getContext('2d');
+  // ctx.style.color ="red";
+  const massPopChart = new Chart(ctx,{
+  type:'pie',
+      data:{
+          labels: JSON.parse(ctx.canvas.dataset.labels),
+          datasets: [{  
+          data: JSON.parse(ctx.canvas.dataset.data),
+           backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(245,104,22,96)',
+      'rgb(255,207,165,100)'
+        ],
+      }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "MoneyBee's Expense Report"
+        }
+      }
+      });
+  
+      let main_div = document.getElementById("main-div");
+     let del_div = document.getElementById('confirm-box');
+    let delete_confirm = a => {
+        let del_id = a.getAttribute('data-id');
+        document.getElementById('del-a').href = "/inc_dlt/"+del_id
+        main_div.style.filter = "blur(5px)"
+        del_div.style.display = "block";
 
+  }    
+  function hide_box() {
+        main_div.style.filter = "blur(0px)";
+        del_div.style.display = "none";
+  }
 
+</script>
