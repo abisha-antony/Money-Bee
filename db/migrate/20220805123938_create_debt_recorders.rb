@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDebtRecorders < ActiveRecord::Migration[6.1]
   def change
     create_table :debt_recorders do |t|
