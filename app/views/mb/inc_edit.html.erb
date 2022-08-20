@@ -56,18 +56,22 @@
 <h2>Edit Income</h2>
 <% cur_income = Income.find(params['ei']) %>
   <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
-<form action="/update_income" method="post">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="income[id]" value="<%= cur_income['id'] %>">
-  
-  <div class="form-group">
-    <label >Description</label>
-    <input type="text" class="form-control" name="income[description]" value="<%= cur_income['description'] %>">
-  </div> <br>
-  <div class="form-group">
-    <label>Income Amount</label>
-    <input type="number" class="form-control" name="income[amount]" value="<%= cur_income['amount'] %>">
-  </div> <br>
-  <button type="submit" id="popup-submit" class="btn-c">Edit</button>
-  <a href="/income"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
-</form>
+<div class="inc-edit">
+    <form action="/update_income" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="income[id]" value="<%= cur_income['id'] %>">
+        
+        <div class="form-group">
+          <label >Description</label>
+          <input type="text" class="form-control" name="income[description]" value="<%= cur_income['description'] %>">
+        </div> <br>
+        <div class="form-group">
+          <label>Income Amount</label>
+          <input type="number" class="form-control" name="income[amount]" value="<%= cur_income['amount'] %>">
+        </div> <br>
+        <button type="submit" id="popup-submit" class="btn-c">Edit</button>
+        <a href="/income"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
+      </form>
+      
+
+</div>

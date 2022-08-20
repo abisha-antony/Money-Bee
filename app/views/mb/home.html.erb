@@ -81,6 +81,7 @@
       data:{
           labels: JSON.parse(ctx.canvas.dataset.labels),
           datasets: [{  
+            label: "MoneyBee's Expense Report",
           data: JSON.parse(ctx.canvas.dataset.data),
           backgroundColor: [
       'rgb(255, 99, 132)',
@@ -95,7 +96,7 @@
         legend: {display: false},
         title: {
           display: true,
-          // text: "MoneyBee's Expense Report"
+          
         }
       }
       });
