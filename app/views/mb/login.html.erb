@@ -19,11 +19,11 @@
           <form class="form-box px-3" action="/to_login_handler" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <div class="form-input">
-              <span><i class="fa-solid fa-envelope icns"></i></span>
+              <span><em class="fa-solid fa-envelope icns"></em></span>
               <input type="email" name="user[email]" placeholder="Email" tabindex="10" required>
             </div>
             <div class="form-input">
-              <span><i class="fa-solid fa-key icns"></i></span>
+              <span><em class="fa-solid fa-key icns"></em></span>
               <input type="password" id="password" name="user[password]" placeholder="Password" required>
             </div>
             <div><p class="text-danger"><%= flash[:error] %></p></div>

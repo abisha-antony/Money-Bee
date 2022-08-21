@@ -19,7 +19,7 @@
           <form class="form-box px-3" action="/verify_otp" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <div class="form-input">
-              <span><i class="fa-solid fa-envelope icns"></i></span>
+              <span><em class="fa-solid fa-envelope icns"></em></span>
               <input type="number" name="otp" placeholder="Enter otp" tabindex="10" required>
             </div>
             <div><p class="text-danger"><%= flash[:error] %></p></div>

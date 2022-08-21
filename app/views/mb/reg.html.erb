@@ -21,22 +21,22 @@
         <form class="form-box px-3" action="/create_new_user" method="post">
          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
           <div class="form-input">
-            <span><i class="fa-solid fa-user icns"></i></span>
+            <span><em class="fa-solid fa-user icns"></em></span>
             <input type="text" name="users[name]" placeholder="Username" tabindex="10" required>
           </div>
 
           <div class="form-input">
-            <span><i class="fa-solid fa-envelope icns"></i></span>
+            <span><em class="fa-solid fa-envelope icns"></em></span>
             <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
           </div>
           <div class="form-input">
-            <span><i class="fa-solid fa-key icns"></i></span>
+            <span><em class="fa-solid fa-key icns"></em></span>
             <input type="password" id="password" name="users[password]" placeholder="Create Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             required>
           </div>
 
           <div class="form-input">
-            <span><i class="fa-solid fa-key icns"></i></span>
+            <span><em class="fa-solid fa-key icns"></em></span>
             <input type="password" id="cpassword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             required>
           </div>
@@ -53,12 +53,6 @@
               Register
             </button>
           </div>
-
-
-         
-
-
-
           <hr class="my-4">
           <div class="text-center mb-2">
             Already have an account?
