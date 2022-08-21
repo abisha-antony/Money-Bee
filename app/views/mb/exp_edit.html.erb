@@ -50,7 +50,11 @@
 <h2>Edit Expense</h2>
 <% cur_exp = Expense.find(params['ee']) %>
   <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
+
 <div class="exp-edit">
+
+<div class="div-edit">
+
   <form action="/update_expense" method="post">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input type="hidden" name="expense[id]" value="<%= cur_exp['id'] %>">
@@ -69,6 +73,10 @@
     <button type="submit" id="popup-submit" class="btn-c">Edit</button>
     <a href="/expense"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
   </form>
+
   
 
 </div>
+
+</div>
+
