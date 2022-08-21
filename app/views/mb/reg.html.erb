@@ -31,12 +31,14 @@
           </div>
           <div class="form-input">
             <span><i class="fa-solid fa-key icns"></i></span>
-            <input type="password" id="password" name="users[password]" placeholder="Create Password" required>
+            <input type="password" id="password" name="users[password]" placeholder="Create Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            required>
           </div>
 
           <div class="form-input">
             <span><i class="fa-solid fa-key icns"></i></span>
-            <input type="password" id="cpassword" placeholder="Confirm Password" required>
+            <input type="password" id="cpassword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            required>
           </div>
           <div><p class="text-danger"><%= flash[:error] %></p></div>
           <div class="mb-3">
@@ -45,18 +47,15 @@
               <label class="custom-control-label">Show password</label>
             </div>
           </div>
-
+          <div id="warn-div"></div>
           <div class="mb-3">
-            <button type="submit" class="btn btn-block" >
+            <button type="button" id="submit_btn" class="btn-c-l" >
               Register
             </button>
           </div>
 
-          <div class="text-right">
-            <a href="#" class="forget-link">
-              Forgot Password?
-            </a>
-          </div>
+
+         
 
 
 
@@ -64,7 +63,7 @@
           <div class="text-center mb-2">
             Already have an account?
             <a href="/login" class="register-link">
-              Signin
+              Sign in
             </a>
           </div>
         </form>

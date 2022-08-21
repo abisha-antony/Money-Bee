@@ -1,3 +1,56 @@
+
+// Place all the styles related to the expense controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.exp-edit{
+    box-shadow: 5px 10px 16px rgba(163,155,163,1);
+    height: 45%;
+    width: 35%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+    margin-left: 10%;
+}
+.debt-edit{
+    box-shadow: 5px 5px 10px grey;
+    height: 55%;
+    width: 35%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+    margin-left: 10%;
+}
+.inc-edit{
+    box-shadow: 5px 5px 10px grey;
+    height: 35%;
+    width: 45%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+    margin-left: 10%;
+
+}
+.profile-edit{
+    box-shadow: 5px 5px 10px grey;
+    height: 55%;
+    width: 45%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 10%;
+    margin-left: 10%;
+
+}
+.feedback{
+    box-shadow: 5px 5px 10px grey;
+    height: 55%;
+    width: 45%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 5%;
+    margin-left: 10%;
+
+}
+
 .div-edit{
     box-shadow: 11px 18px 23px -3px rgba(74,71,74,1);
     height: 45%;
@@ -8,3 +61,4 @@
     border-radius: 5px 9px 10px;
     
 }
+

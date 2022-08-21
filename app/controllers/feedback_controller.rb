@@ -3,14 +3,14 @@
 class FeedbackController < ApplicationController
   def create_feedback
     # render "mb/feedback"
-    cur_user_id = session[:user]['id']
+    cur_user_id = session[:user][:id]
     @feedback = Feedback.create!(
       users_id: cur_user_id,
       feedback: params[:feedback]
     )
     if @feedback.save
       flash[:notice] = 'Feedback Submitted!'
-      redirect_to '/home'
+      redirect_to '/feedback'
       # PostMailer.with(feedback: @feedback).deliver_later
     else
       flash[:error] = @feedback.errors.full_messages.first

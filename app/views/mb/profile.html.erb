@@ -1,0 +1,85 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <%= image_tag('mb-mini.png',alt: "logo", id: "home-main-logo") %>
+
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
+    <li class="nav-item">
+        <a href="/feedback" class="nav-link text-white"  aria-current="page">
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+            My Profile
+        </a>
+        </li>
+        <li class="nav-item">
+        <a href="/home" class="nav-link text-white">
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+            Home
+        </a>
+        </li>
+        <li class="nav-item">
+        <a href="/income" class="nav-link text-white"   id="active-tab">
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+            Income
+        </a>
+        </li>
+        <li>
+        <a href="/expense" class="nav-link text-white" >
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+            Expense
+        </a>
+        </li>
+        <li>
+        <a href="#" class="nav-link text-white">
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            Savings
+        </a>
+        </li>
+        <li>
+        <a href="#" class="nav-link text-white">
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+            Record Debt
+        </a>
+        </li>
+        <li>
+        <a href="#" class="nav-link text-white">
+            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+            feedback
+        </a>
+        </li>
+        
+        </li>
+    </ul>
+    <hr>
+    <a href="/logout" id="logout"><i class="fa-solid fa-right-from-bracket text-white"></i>&nbsp; Logout</a>
+
+    </div>
+  
+    <div class="profile-edit">
+        
+        <form action="/edit_profile" method="post">
+            
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input type="hidden" name=" value="">
+            <div class="form-group">
+                <label >Name</label>
+                <input type="text" class="form-control" name="user[name]" value="<%=session[:user]['name']%>">
+              </div> <br>
+            <div class="form-group">
+              <label >Email</label>
+              <input type="email" class="form-control" name="user[email]" value="<%=session[:user]['email']%>" >
+            </div> <br>
+            <p class="text-success">
+                <%= flash[:notice] %>
+            </p>
+            <button type="submit" id="popup-submit" class="btn-c">Edit</button>
+            <a href="/expense"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
+          </form>
+    </div>
+</div>

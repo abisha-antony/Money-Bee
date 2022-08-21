@@ -1,8 +1,7 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <%= image_tag('cover-logo.png',alt: "logo", id: "home-main-logo") %>
-
+       <%= image_tag('cover-logo.png',alt: "logo", class: "edit-img") %>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
@@ -12,42 +11,36 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
         <li class="nav-item">
-        <a href="/home" class="nav-link text-white"  aria-current="page">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-            Home
-        </a>
+          <a href="/home" class="nav-link text-white"  >
+            <i class="fa-solid fa-house"></i>&nbsp;&nbsp; Home
+          </a>
         </li>
         <li class="nav-item">
-        <a href="/income" class="nav-link text-white" aria-current="page"  id="active-tab">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+          <a href="/income" class="nav-link text-white" aria-current="page" id="active-tab">
+          <i class="fa-solid fa-sack-dollar"></i>&nbsp;&nbsp;
             Income
-        </a>
+          </a>
         </li>
         <li>
-        <a href="/expense" class="nav-link text-white" >
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+          <a href="/expense" class="nav-link text-white">
+            <i class="fa-solid fa-wallet"></i>&nbsp;&nbsp;
             Expense
-        </a>
+          </a>
+        </li>
+              <li>
+          <a href="/debt_recorder" class="nav-link text-white">
+           <i class="fa-solid fa-hand-holding-dollar"></i>&nbsp;&nbsp;
+           Record Debt
+          </a>
         </li>
         <li>
-        <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-            Savings
-        </a>
+          <a href="/feedback" class="nav-link text-white">
+            <i class="fa-solid fa-comments"></i>&nbsp;&nbsp;
+           feedback
+          </a>
         </li>
-        <li>
-        <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-            Record Debt
-        </a>
-        </li>
-        <li>
-        <a href="#" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-            feedback
-        </a>
-        </li>
-    </ul>
+      
+      </ul>
     <hr>
     <a href="/logout" id="logout"><i class="fa-solid fa-right-from-bracket text-white"></i>&nbsp; Logout</a>
 

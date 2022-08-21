@@ -45,4 +45,6 @@ Rails.application.routes.draw do
   post '/search_exp', to: 'search#search_expense'
   post '/search_inc', to: 'search#search_income'
   post '/search_debt', to: 'search#search_debt'
+  get '/profile', to: 'home#myprofile'
+  post '/edit_profile', to: 'home#profile_update'
 end

@@ -74,6 +74,7 @@
             <th scope="col">S.No</th>
             <th scope="col" colspan="2">Description</th>
             <th scope="col">Amount</th>
+            <th scope="col">Date</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -85,6 +86,9 @@
             <% s_no = s_no + 1 %>
             <td colspan="2"><%= t.description%></td>
             <td><%= t.amount %></td>
+            <%if t.created_at.strftime("%m") == Time.now.strftime("%m")%>
+            <td><%= t.created_at.strftime("%Y-%m-%d") %></td>
+            <%end%>
             <td>
            <a href="/edit_income/<%= t.id%>"> <i class="fa-solid fa-pen"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;
              <a data-id="<%=t.id %>" onclick="delete_confirm(this)"><i class="fa-solid fa-trash"></i></a></td>
@@ -147,6 +151,14 @@ let div = document.getElementsByClassName("col-3")
       data:{
           labels: JSON.parse(ctx.canvas.dataset.labels),
           datasets: [{  
+             label: "MoneyBee's Expense Report",
+             backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(245,104,22,96)',
+      'rgb(255,207,165,100)'
+        ],
           data: JSON.parse(ctx.canvas.dataset.data),
            backgroundColor: [
       'rgb(255, 99, 132)',
@@ -156,6 +168,7 @@ let div = document.getElementsByClassName("col-3")
       'rgb(255,207,165,100)'
         ],
       }]
+     
       },
       options: {
         legend: {display: false},

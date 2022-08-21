@@ -34,19 +34,17 @@ class ForgotPasswordController < ApplicationController
   end
 
   def new_password
-    p params[:password]
-    hashed_pw = BCrypt::Password.create(params[:password])
+    p params[:user][:password]
+    hashed_pw = BCrypt::Password.create(params[:user][:password])
     p hashed_pw
     p '===================='
     @update_pw = User.find($fpw_user['id'])
     p @update_pw
-    @update_pw.update(
-      password_digest: params[:password]
-    )
-    @update_pw.save
-    p @update_pw.errors.full_messages
+  if @update_pw.update(update_password)
+   
     flash[:notice] = 'Password Reset Successfull!!'
     redirect_to '/login'
+  end
   end
 
   def test_short
@@ -58,5 +56,9 @@ class ForgotPasswordController < ApplicationController
   def gen_random
     otp = 6.times.map { rand(10) }.join
     otp.to_s
+  end
+
+  def update_password
+    params.require(:user).permit(:password)
   end
 end
