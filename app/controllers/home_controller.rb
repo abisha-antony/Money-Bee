@@ -2,7 +2,7 @@
 
 class HomeController < ApplicationController
   def render_home
-    expense = Expense.where(users_id: session[:user]['id'])
+    expense = Expense.where(users_id: session[:user][:id])
     @data_category = []
     @data_data = []
     expense.each do |x|
@@ -13,6 +13,15 @@ class HomeController < ApplicationController
     p @data_category
     p @data_data
     render 'mb/home'
+  end
+
+  def profile_update
+    profile = User.find(session[:user]['id'])
+    
+    if profile.update(update_profile)
+     flash[:notice]="user update successfull!"
+       redirect_to "/home"
+    end
   end
 
   def render_cover
@@ -59,5 +68,15 @@ class HomeController < ApplicationController
 
   def render_debt_edit
     render 'mb/debt_edit'
+  end
+
+  def myprofile
+    render 'mb/profile'
+
+  end
+
+  private
+  def update_profile
+    params.require(:user).permit(:name)
   end
 end

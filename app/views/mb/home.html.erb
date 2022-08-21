@@ -56,7 +56,7 @@
     <div class="col-4 home-top-sub">
       <i class="fa-solid fa-wallet color-green mt-1"></i>
       &nbsp; &nbsp;<p class="h4 mt-2">Expense</p>
-      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;<%=Expense.where(users_id: cur_user['id']).sum(:amount)%></p>
+      &nbsp; &nbsp;<p class="h4 mt-2">&#8377;<%=Expense.where(users_id: cur_user['id'] ).sum(:amount)%></p>
     </div>
     <div class="col-3 home-top-sub">
       <i class="fa-solid fa-piggy-bank color-green mt-1"></i>
@@ -82,6 +82,14 @@
           labels: JSON.parse(ctx.canvas.dataset.labels),
           datasets: [{  
           data: JSON.parse(ctx.canvas.dataset.data),
+          label: "MoneyBee's Expense Report",
+            backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(245,104,22,96)',
+      'rgb(255,207,165,100)'
+        ],
       }]
       },
       options: {

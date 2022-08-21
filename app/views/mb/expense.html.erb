@@ -75,6 +75,7 @@
             <th scope="col">category</th>
             <th scope="col" colspan="2">Description</th>
             <th scope="col">Amount</th>
+            <th scope="col">Date</th>
             <th scope="col"></th>
 
           </tr>
@@ -88,6 +89,9 @@
             <td><%= e.category%></td>
             <td colspan="2"><%= e.description%></td>
             <td><%= e.amount %></td>
+            <%if e.created_at.strftime("%m") == Time.now.strftime("%m")%>
+            <td><%= e.created_at.strftime("%Y-%m-%d") %></td>
+            <%end%>
             <td>
 
               <a href="/edit_expense/<%= e.id %>"> <i class="fa-solid fa-pen"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;

@@ -9,7 +9,9 @@ class UsersController < ApplicationController
         users_id: user['id']
       )
       flash[:notice] = 'Sign up Successfull!'
-      redirect_to '/login'
+      session[:user] = user
+      redirect_to '/home'
+
       # PostMailer.with(user: @user).deliver_later
     else
       flash[:error] = @user.errors.full_messages.first
