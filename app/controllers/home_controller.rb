@@ -3,7 +3,7 @@
 class HomeController < ApplicationController
 
   def render_home
-    expense = Expense.where(users_id: session[:user][:id])
+    expense = Expense.where(users_id: session[:user]["id"])
     @data_category = []
     @data_data = []
     expense.each do |x|
@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     p @data_category
     p @data_data
     p session[:user] 
+    p expense.inspect
     render 'mb/home'
   end
 
