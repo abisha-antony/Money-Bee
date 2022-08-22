@@ -1,7 +1,7 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <%= image_tag('mb-mini.png',alt: "logo", id: "home-main-logo") %>
+       
 
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -13,7 +13,7 @@
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
     <li class="nav-item">
         <a href="/feedback" class="nav-link text-white"  aria-current="page"  id="active-tab">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+            <i class="fa-solid fa-user" class="nav-link text-white" aria-current="page"></i>&nbsp;&nbsp;
             My Profile
         </a>
         </li>
@@ -64,6 +64,8 @@
     <div class="profile-edit">
         
         <form action="/edit_profile" method="post">
+        
+            <i class="fa-solid fa-circle-user" id="user-profile"></i>
             
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <input type="hidden" name=" value="">
@@ -78,8 +80,8 @@
             <p class="text-success">
                 <%= flash[:notice] %>
             </p>
-            <button type="submit" id="popup-submit" class="btn-c">Edit</button>
-            <a href="/expense"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
+            <button type="submit" id="popup-submit" class="edit-btn">Edit</button>
+            <a href="/expense"><button type="button" id="popup-cancel" class="dlt-btn">Cancel</button></a>
           </form>
     </div>
 </div>

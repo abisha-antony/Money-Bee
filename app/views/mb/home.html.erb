@@ -1,7 +1,7 @@
 <% cur_user = session[:user] %>
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <%= image_tag('cover-logo.png',alt: "logo", id: "home-main-logo") %>
+
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
@@ -10,6 +10,12 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
+    <li class="nav-item">
+        <a href="/feedback" class="nav-link text-white"  aria-current="page" >
+          <i class="fa-solid fa-user" class="nav-link text-white" aria-current="page"></i>&nbsp;&nbsp;
+            My Profile
+        </a>
+        </li>
       <li class="nav-item">
         <a href="/home" class="nav-link text-white" id="active-tab" aria-current="page">
           <em class="fa-solid fa-house"></em>&nbsp;&nbsp; Home
@@ -81,9 +87,13 @@
       data:{
           labels: JSON.parse(ctx.canvas.dataset.labels),
           datasets: [{  
+            label: "MoneyBee's Expense Report",
           data: JSON.parse(ctx.canvas.dataset.data),
+
           label: "MoneyBee's Expense Report",
             backgroundColor: [
+
+
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)',
       'rgb(255, 205, 86)',
@@ -96,7 +106,7 @@
         legend: {display: false},
         title: {
           display: true,
-          text: "MoneyBee's Expense Report"
+          
         }
       }
       });

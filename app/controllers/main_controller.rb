@@ -1,27 +1,26 @@
 # frozen_string_literal: true
 
 class MainController < ApplicationController
-  def create_income
-    if session[:user].nil?
-      flash[:error] = 'login to add Income'
-    else
-      # to add main balance
-      main_bal = MainBalance.find_by(users_id: get_user_id)
-      sum = params[:income][:amount].to_i + main_bal['amount']
-      main_bal.update(
-        amount: sum
-      )
-      main_bal.save
-      # to add income
-      income = Income.new(income_params)
-      if income.save
-        flash[:notice] = 'Income Added Successfully !'
-      else
-        flash[:error] = 'Failed! Try again later'
-      end
-      redirect_to '/income'
+    def create_income
+        if session[:user].nil?
+            flash[:error] = "login to add Income"
+        else
+            main_bal = MainBalance.find_by(users_id: get_user_id)
+            sum = params[:income][:amount].to_i + main_bal["amount"]
+            main_bal.update(
+                amount: sum,
+            )
+            main_bal.save
+            income = Income.new(income_params)
+            if income.save
+                flash[:notice] = "Income Added Successfully !"
+                redirect_to '/income'
+            else
+                flash[:error] = "Failed! Try again later"
+                redirect_to '/income'
+            end
+        end
     end
-  end
 
   def debt_recorder
     cur_user = session[:user]

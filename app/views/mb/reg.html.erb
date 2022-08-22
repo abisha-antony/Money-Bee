@@ -31,7 +31,7 @@
           </div>
           <div class="form-input">
             <span><em class="fa-solid fa-key icns"></em></span>
-            <input type="password" id="password" name="users[password]" placeholder="Create Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            <input type="password" id="password" name="users[password]" title="Minimum 8 characters ,password must contain a special character (@, $, !, &, etc)" placeholder="Create Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             required>
           </div>
 
@@ -49,7 +49,7 @@
           </div>
           <div id="warn-div"></div>
           <div class="mb-3">
-            <button type="button" id="submit_btn" class="btn-c-l" >
+            <button type="submit" id="submit_btn" class="btn-c-l" >
               Register
             </button>
           </div>

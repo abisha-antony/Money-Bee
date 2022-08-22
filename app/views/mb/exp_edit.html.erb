@@ -1,8 +1,7 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <%= image_tag('cover-logo.png',alt: "logo", class: "edit-img") %>
-
+       
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
@@ -11,6 +10,12 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto" id="side-bar-ul">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link text-white"  aria-current="page">
+          <i class="fa-solid fa-user" class="nav-link text-white" aria-current="page"></i>&nbsp;&nbsp;
+          My Profile
+        </a>
+        </li>
       <li class="nav-item">
         <a href="/home" class="nav-link text-white" >
           <em class="fa-solid fa-house"></em>&nbsp;&nbsp; Home
@@ -50,7 +55,11 @@
 <h2>Edit Expense</h2>
 <% cur_exp = Expense.find(params['ee']) %>
   <p class="text-success"><%= flash[:notice] %></p> <p class="text-danger"><%= flash[:error] %></p>
+
 <div class="exp-edit">
+
+<div class="div-edit">
+
   <form action="/update_expense" method="post">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input type="hidden" name="expense[id]" value="<%= cur_exp['id'] %>">
@@ -69,6 +78,10 @@
     <button type="submit" id="popup-submit" class="btn-c">Edit</button>
     <a href="/expense"><button type="button" id="popup-cancel" class="btn-c">Cancel</button></a>
   </form>
+
   
 
 </div>
+
+</div>
+

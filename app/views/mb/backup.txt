@@ -36,3 +36,5 @@ backgroundColor:'red',
             tooltips:{
                 enabled:true  
             }
+
+             <a class="navbar-brand"><%= image_tag('cover-logo.png',alt: "logo", id: "cover-logo") %></a> 

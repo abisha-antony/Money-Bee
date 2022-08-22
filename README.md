@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Moneybee
 
@@ -87,5 +88,32 @@
 * According to the income of users it will show a pie chart representation in the income page.
 
 
+=======
+# README
+>>>>>>> 31272fda2a1cd5f80af226e93c6ae3b3b25b56a9
 
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+# git hub just for testing and learning git branches
+# changed
 
