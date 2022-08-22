@@ -1,6 +1,7 @@
 <% cur_user = session[:user] %>
 <div class="d-flex flex-column flex-shrink-0 p-3 " id="sidebar" style="width: 280px;">
     <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <a class="navbar-brand"><%= image_tag('cover-logo.png',alt: "logo", class: "cover-logo") %></a> 
 
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
