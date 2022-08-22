@@ -7,10 +7,11 @@ class UsersController < ApplicationController
     def register
       @user = User.new(user_params) #User - model's class name
       if @user.save
-        user = User.find_by(name: params[:users][:name])
+        user = User.find_by(email: params[:users][:email])
         MainBalance.create!(
           users_id: user["id"]
         )
+        session[:user] = user
         flash[:notice] = "Sign up Successfull!"
         redirect_to "/home"
         # PostMailer.with(user: @user).deliver_later

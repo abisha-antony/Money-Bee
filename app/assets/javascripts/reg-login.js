@@ -15,8 +15,8 @@ function pw_validator() {
     let pw = document.getElementById('password').value
     let cpw = document.getElementById('cpassword').value
     if(pw == cpw){
-        let form = document.getElementById('sub-form');
-        form.submit();
+        let sub_btn = document.getElementById('sub-btn');        
+        sub_btn.click();
     }else {
         document.getElementById('warn-div').innerText = "Password do not match"
     }

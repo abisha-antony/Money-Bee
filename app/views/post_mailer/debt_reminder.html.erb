@@ -8,10 +8,15 @@
     <p>
       Hi <strong><%= @name %></strong> <br>
     </p>
-    <p>Your Debt Record is Created. </p>
+    <p> Please find below the details of your expenses.<br>You have to pay .</p>
+    <p><%= @parameters[:owed_to] %></p>
     <p><%= @parameters[:amount] %></p>
     <p><%= @parameters[:date] %></p>
-    <p><%= @parameters[:owed_to] %></p>
-    <p>Thanks for joining and have a great day!</p>
+    
+    <p>Thank you for using Moneybee <br>
+    Regards <br>
+    Team Moneybee</p>
+
+    
   </body>
 </html>
