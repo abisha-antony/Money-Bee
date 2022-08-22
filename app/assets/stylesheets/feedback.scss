@@ -1,3 +1,40 @@
-// Place all the styles related to the feedback controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+#user-profile{
+   font-size: 150px;
+   margin-left: 40%;
+   margin-top: 1%;
+   color: green;
+  
+}
+.profile-edit{
+    box-shadow: 5px 5px 10px grey;
+    height: 55%;
+    width: 45%;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: 8%;
+
+}
+.edit-btn{
+    height: fit-content;
+    width: 25%;
+    padding: 5px;
+    border: none;
+    background-color: #58C479;
+    color: white;
+    text-decoration: none;
+    // height: 40px;
+    border-radius: 10px;
+    margin-left: 24%;
+}
+.dlt-btn{
+    height: fit-content;
+    width: 25%;
+    padding: 5px;
+    border: none;
+    background-color: #58C479;
+    color: white;
+    text-decoration: none;
+    // height: 40px;
+    border-radius: 10px;
+    margin-left: 2%;
+}

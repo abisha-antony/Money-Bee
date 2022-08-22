@@ -2,21 +2,7 @@
 
 class UsersController < ApplicationController
 
-  def register
-    @user = User.new(user_params)
-    if @user.save
-      user = User.find_by(name: params[:users][:name])
-      MainBalance.create!(
-        users_id: user['id']
-      )
-      flash[:notice] = 'Sign up Successfull!'
-      session[:user] = user
-      redirect_to '/home'
 
-      # PostMailer.with(user: @user).deliver_later
-    else
-      flash[:error] = @user.errors.full_messages.first
-      redirect_to '/signup'
 
     def register
       @user = User.new(user_params) #User - model's class name
@@ -26,7 +12,7 @@ class UsersController < ApplicationController
           users_id: user["id"]
         )
         flash[:notice] = "Sign up Successfull!"
-        redirect_to "/login"
+        redirect_to "/home"
         # PostMailer.with(user: @user).deliver_later
       else
         flash[:error] = @user.errors.full_messages.first
