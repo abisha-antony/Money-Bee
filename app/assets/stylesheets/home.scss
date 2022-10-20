@@ -1,6 +1,4 @@
-body{
-    background-color: #F0F2F5;
-}
+
 a{
     text-decoration: none !important;
 }
@@ -136,4 +134,24 @@ a{
 .cover-logo{
     height: 50px;
         margin-left: 50px;
+}
+.bg-clr{
+    background-color: #F0F2F5;
+}
+
+#popup-cancel {
+    height: fit-content;
+    width: auto;
+    padding: 8px;
+    border: none;
+    background-color: #d72d30;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+#expense{
+    color: #c82124;
+}
+.fa-trash{
+    cursor: pointer;
 }

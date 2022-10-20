@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/income', to: 'home#render_income'
   get '/expense', to: 'home#render_expense'
   post '/create_new_user', to: 'users#register'
+ 
   match '/to_login_handler', to: 'session#login_handler', via: :post
   post '/create_expense', to: 'main#create_expense'
   post '/create_income', to: 'main#create_income'

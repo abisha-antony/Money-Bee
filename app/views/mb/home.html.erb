@@ -61,7 +61,7 @@
       &nbsp; &nbsp;<p class="h4 mt-2">&#8377;<%=Income.where(users_id: cur_user['id']).sum(:amount)%></p>
     </div>
     <div class="col-4 home-top-sub">
-      <i class="fa-solid fa-wallet color-green mt-1"></i>
+      <i class="fa-solid fa-wallet color-green mt-1" id="expense"></i>
       &nbsp; &nbsp;<p class="h4 mt-2">Expense</p>
       &nbsp; &nbsp;<p class="h4 mt-2">&#8377;<%=Expense.where(users_id: cur_user['id'] ).sum(:amount)%></p>
     </div>
